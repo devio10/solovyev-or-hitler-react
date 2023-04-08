@@ -1,14 +1,81 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 6rem;
   min-height: 100vh;
 }
 
 .mainTitle {
-  font-family: 'Montserrat';
-  color: white;
+  
   font-size: 48px;
+  height: 56px;
+  overflow: clip;
+  margin: 0 0 24px 0;
+
+  span {
+    $color1: rgba(248,80,50,1);
+    $color2: rgba(190,33,17,1);
+    background: linear-gradient(130deg, $color1 0%, $color2 100%);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation-name: title-drop;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+    animation-delay: .5s;
+
+    transform: translateY(-60px);
+    display: inline-block;
+  }
+  span:last-child {
+    $color2: rgba(160,68,255,1);
+    $color1: rgba(106,48,147,1);
+    background: linear-gradient(130deg, $color1 0%, $color2 100%);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation-delay: .6s;
+  }
+}
+
+@keyframes title-drop {
+  to {
+    transform: translateY(0);
+  }
+}
+
+.mainDescription {
+  max-width: 600px;
+  text-align: center;
+  line-height: 30px;
+
+  margin: 0 0 48px 0;
+}
+
+.devuiButton {
+  font-size: 15px;
+  font-weight: 500;
+  
+  padding: 8px 28px 8px 28px;
+  margin: 0;
+
+  border-radius: 4px;
+  border: none;
+
+  cursor: pointer;
+
+  $color1: rgba(248,80,50,1);
+  $color2: rgba(190,33,17,1);
+  background: linear-gradient(130deg, $color1 0%, $color2 100%);
+
+  transition: .3s box-shadow;
+}
+.devuiButton:hover {
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+  transition: none;
 }

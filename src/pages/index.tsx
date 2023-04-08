@@ -17,7 +17,28 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1 className={styles.mainTitle}><span>Соловьев</span> или <span>Гитлер</span>?</h1>
+        <p className={styles.mainDescription}>Проверьте свою интуицию с помощью простой игры, в которой вам нужно угадать кому принадлежит предложенная цитата: Соловьеву или Гитлеру.</p>
+        <Button onClick={() => console.log('bitch')} text='Начать' />
       </main>
+      <section id='quiz'>
+        
+      </section>
     </>
+  )
+}
+
+function Button(props: any) {
+  return (
+    <button style={props.style} className={styles.devuiButton} onClick={props.onClick}>{props.text}</button>
+  )
+}
+
+function Option(props: any) {
+  let src, alt;
+  if (props.variant == 0) {
+    src = 'src/img/solovyev.png'
+  }
+  return (
+    <Image src={props.src} height='200' width='200' alt={props.alt}></Image>
   )
 }
