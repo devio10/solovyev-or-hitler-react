@@ -1,0 +1,14 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem;
+  min-height: 100vh;
+}
+
+.mainTitle {
+  font-family: 'Montserrat';
+  color: white;
+  font-size: 48px;
+}
