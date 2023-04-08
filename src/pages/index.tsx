@@ -21,7 +21,7 @@ export default function Home() {
         <Button onClick={() => console.log('bitch')} text='Начать' />
       </main>
       <section id='quiz'>
-        
+        <Image src='/src/img/solovyev.png' width='50' height='50' alt='Выбрать Соловьёва'></Image>
       </section>
     </>
   )
@@ -30,15 +30,5 @@ export default function Home() {
 function Button(props: any) {
   return (
     <button style={props.style} className={styles.devuiButton} onClick={props.onClick}>{props.text}</button>
-  )
-}
-
-function Option(props: any) {
-  let src, alt;
-  if (props.variant == 0) {
-    src = 'src/img/solovyev.png'
-  }
-  return (
-    <Image src={props.src} height='200' width='200' alt={props.alt}></Image>
   )
 }
