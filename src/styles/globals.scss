@@ -7,3 +7,12 @@ html, body {
     color: white;
     font-family: 'Montserrat';
 }
+footer {
+    display: flex;
+    justify-content: center;
+    height: 64px;
+    align-items: center;
+}
+footer p {
+    margin-right: 8px;
+}

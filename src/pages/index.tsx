@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@/styles/Home.module.scss'
+import QuizOption from '@/components/quizOption'
 
 
 export default function Home() {
@@ -20,8 +21,8 @@ export default function Home() {
         <p className={styles.mainDescription}>Проверьте свою интуицию с помощью простой игры, в которой вам нужно угадать кому принадлежит предложенная цитата: Соловьеву или Гитлеру.</p>
         <Button onClick={() => console.log('bitch')} text='Начать' />
       </main>
-      <section id='quiz'>
-        <Image src='/src/img/solovyev.png' width='50' height='50' alt='Выбрать Соловьёва'></Image>
+      <section>
+        <QuizOption />
       </section>
     </>
   )
