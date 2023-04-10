@@ -2,9 +2,22 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@/styles/Home.module.scss'
 import QuizOption from '@/components/quizOption'
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 
 export default function Home() {
+
+  const router = useRouter();
+
+
+
+  useEffect( () => {
+    setTimeout(() => {
+      router.push('/bitches')
+    }, 3000)
+  }, [] )
+
   return (
     <>
       <Head>
