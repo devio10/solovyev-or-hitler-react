@@ -1,10 +1,57 @@
 .quizOptionButton {
-    margin: 16px;
-    max-width: 450px;
-    aspect-ratio: 9/16;
+    margin: 16px 16px 64px 16px;
+    max-width: 350px;
+    aspect-ratio: 9/14;
     width: 50%;
     box-sizing: border-box;
     border-radius: 16px;
+    cursor: pointer;
+    border: none;
     overflow: clip;
     background-color: black;
+    position: relative;
+    transition: .3s transform ease-in-out;
+    filter: saturate(1);
+    
+    
+    img {
+        object-fit: cover;
+        transition: .6s all ease-in-out;
+    }
+
+    &:hover img {
+        filter: saturate(0);
+        transform: scale(1.1);
+    }
+    
+}
+
+.quizTextBlock {
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0) 100%);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.quizCount {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 32px;
+    border: 1px solid black;
+    background: rgba(30,30,30,0.75);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    width: 156px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .quizText {
+        font-weight: bold;
+    }
 }
