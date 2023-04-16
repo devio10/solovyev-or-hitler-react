@@ -8,23 +8,33 @@ import { useRouter } from 'next/router'
 
 export default function Home() {
 
+  const hitler = 0;
+  const solovyev = 1;
+
   const questions = [
-    ['Только фанатичная толпа легко управляема', 0],
-    ['Цитата 2', 1],
-    ['Цитата 3', 1],
-    ['Цитата 4', 0],
-    ['Цитата 5', 0],
-    ['Цитата 6', 0]
+    ['Только фанатичная толпа легко управляема', hitler],
+    ['Цитата 2', solovyev],
+    ['Цитата 3', solovyev],
+    ['Цитата 4', hitler],
+    ['Цитата 5', hitler],
+    ['Цитата 6', hitler]
   ]
 
   function randomQuestion() {
     return Math.floor(Math.random() * questions.length)
   }
 
-  const [question, setQuestion] = useState(randomQuestion)
+  const [question, setQuestion] = useState(0)
+
+  useEffect(() => {
+    setQuestion(randomQuestion)
+  }, [])
 
   const [rightnum, setRightnum] = useState(0);
   const [totalnum, setTotalnum] = useState(0);
+  const [quizstate, setQuizstate] = useState(0);
+
+
 
   function answerQuestion(value: number) {
     if (currentQuestion[1] == value) {
@@ -53,19 +63,33 @@ export default function Home() {
         <link rel="preconnect" href="https://fonts.gstatic.com" /> 
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
       </Head>
-      <main className={styles.main}>
-        <h1 className={styles.mainTitle}><span>Соловьев</span> или <span>Гитлер</span>?</h1>
-        <p className={styles.mainDescription}>Проверьте свою интуицию с помощью простой игры, в которой вам нужно угадать кому принадлежит предложенная цитата: Соловьеву или Гитлеру.</p>
-        <Button onClick={() => console.log('bitch')} text='Начать' />
-      </main>
-      <section className={styles.quizSection}>
-        <QuizOption onclick={() => handleNextClick(0)} src="/hitler.jpg" alt="Гитлера" />
-        <QuizOption onclick={() => handleNextClick(1)} src="/solovyev.png" alt="Соловьева" />
-      </section>
+      
+        {
+          !quizstate ? ( 
+            <>
+              <main className={styles.main}>
+                <h1 className={styles.mainTitle}><span>Соловьев</span> или <span>Гитлер</span>?</h1>
+                <p className={styles.mainDescription}>Проверьте свою интуицию с помощью простой игры, в которой вам нужно угадать кому принадлежит предложенная цитата: Соловьеву или Гитлеру.</p>
+                <Button onClick={() => setQuizstate(1)} text='Начать' /> 
+              </main>
+            </>
+          ) : (<></>)
+        }
+      
+      {
+        quizstate ? (
+          <>
+            <section className={styles.quizSection}>
+              <QuizOption onclick={() => handleNextClick(0)} src="/hitler.jpg" alt="Гитлера" />
+              <QuizOption onclick={() => handleNextClick(1)} src="/solovyev.png" alt="Соловьева" />
+            </section>
 
-      <QuizText text={currentQuestion[0]} hoverSide={0} />
+            <QuizText text={currentQuestion[0]} hoverSide={0} />
 
-      <QuizCount right={rightnum} total={totalnum} />
+            <QuizCount right={rightnum} total={totalnum} />
+          </>
+        ) : ( <></> )
+      }
 
     </>
   )
